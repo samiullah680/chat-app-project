@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title> Chat App  </title>
+
+    <!--   <link rel="stylesheet" type="text/css" href="css/chat.css">-->
+    <link rel="stylesheet" href="css/style.css">
+
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container-fluid " class="header" style=" background-color: #ffffcc;">
+
+    <nav class=" navbar navbar-style navbar-expand-sm  " style=" box-shadow: 0 5px 10px #efefef;">
+        
+      <div class="container-fluid ">
+          
+          <div class="navbar-header">
+            <a href=""> <img class="logo" src="images/logo.jpg" style="height: 48px;
+                padding: 2px 2px ;"> Chat App</a>
+          </div>
+
+
+          <ul class=" nav navbar-nav navbar-right " >
+      
+            <li class="nav-item" >
+              <a class="nav-link" href="/home"> <i class="fa fa-home"></i> Home </a>
+                
+            </li>
+
+
+            <%  if(user) { %>
+                <li class="nav-item" >
+                  <td style="text-align: center" >
+  
+                    <a  class="nav-link" href="/logout"> <i class="fa fa-sign-in"></i>logout  </a>
+  
+                  </td>
+           
+                  <%} else  { %>
+    
+                      <li class="nav-item" >
+                        <td style="text-align: center" >
+  
+                          <a  class="nav-link" href="/logout"> <i class="fa fa-sign-in"></i>logout  </a>
+  
+                        </td>
+                      </li>
+                        
+  
+                    <% } %>
+
+            
+            <li class="nav-item" >
+              <a  class="nav-link" href="#"> <i class="fa fa-comments-o" aria-hidden="true"></i> Chating</a>
+            </li>
+           
+          
+
+          </ul>
+          
+        
+
+  </div>
+          
+ </nav>
+    
+<br>
+<br>
+
+
+<div class="container-fluid "  >  
+ <div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-6">
+
+   <section class="chat__section">
+    <div class="brand">
+        <h4 class="card-title"><strong>Let's Chat App</strong></h4>
+
+        <h1>User : <%= user.username %></h1>
+    </div>
+    <div class="message__area"> </div>
+
+    <div >
+        <textarea id="textarea"  cols="30" rows="1" placeholder="Write a message..."></textarea>
+    </div>
+</section>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/client.js"></script>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+ 
+<br><br>
+
+<!-- 
+
+<div class="container">
+
+         
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-md-6">
+                    <div class="card card-bordered">
+                        <div class="card-header">
+                            <h4 class="card-title"><strong>Chat</strong></h4> <a class="btn btn-xs btn-secondary" href="#" data-abc="true">Let's Chat App</a>
+                        </div>
+                        <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important;">
+                      
+                            <div class="chat__section">
+    <div class="brand">
+        <img height="40" src="/wassup.png" alt="">
+        <h1>User : <%= user.username %></h1>
+    </div>
+    <div class="message__area"></div>
+    <div>
+        <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
+    </div>
+</div>
+                       
+                        </div>                  
+                            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+                                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+                            </div>
+                        </div>
+                        <div class="publisher bt-1 border-light">  <input class="publisher-input" type="text" placeholder="Write something">  <a class="publisher-btn" href="#" data-abc="true"><i class="fa fa-smile"></i></a> <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane" style="width: 40px;"></i></a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+-->
+
+<br>
+
+  
+
+
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

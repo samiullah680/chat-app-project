@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title> Chat App  </title>
+
+    <style>
+      .customborder {
+          border-radius: 2%;
+          border: 2px solid #E95420;
+      }
+  </style>
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="header">
+
+    <nav class=" navbar navbar-style navbar-expand-sm  " style=" box-shadow: 0 5px 10px #efefef;">
+        
+      <div class="container ">
+          
+          <div class="navbar-header">
+            <a href=""> <img class="logo" src="images/logo.jpg" style="height: 48px;
+                padding: 2px 2px ;"> Chat App</a>
+          </div>
+
+
+          <ul class=" nav navbar-nav navbar-right " >
+      
+            <li class="nav-item" >
+              <a class="nav-link" href="/home"> <i class="fa fa-home"></i> Home </a>
+                
+            </li>
+            <%  if(user) { %>
+            <li class="nav-item" >
+              <td style="text-align: center" >
+                <a  class="nav-link" href="/register"> <i class="fa fa-sign-in"></i>Login/register  </a>
+
+              </td>
+       
+              <%} else  { %>
+
+
+                <td style="text-align: center" >
+              <a ><i>  <%= user.username %> </i> </a>
+
+                </td>
+              </li>
+                <% } %>
+
+
+
+            <li class="nav-item" >
+              <a  class="nav-link" href="/chatconnect"> <i class="fa fa-comments-o" aria-hidden="true"></i> Chating</a>
+            </li>
+           
+            
+
+
+          
+          </ul>
+          
+        
+
+  </div>
+          
+    </nav>
+    
+<br>
+<br>
+
+
+
+<div class="container">
+  <h3 class="text-center p-3">Register Yourself</h3>
+  <div style="margin: 0 auto;" class="col-12 col-md-6 col-lg-5 p-5 customborder bordered">
+
+      <% if(typeof err != 'undefined') {%>
+      <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong><%= err %></strong>
+      </div>
+      <% } %>
+      <form action="/register" method="POST">
+          <div class="form-group">
+              <label for="email">Enter Your Email</label>
+              <input type="email" class="form-control" name="email" id="email" autocomplete="off"
+                  placeholder="Email" value="<%= typeof email != 'undefined' ? email : '' %>">
+          </div>
+          <div class="form-group">
+              <label for="username">Choose A Username</label>
+              <input type="text" class="form-control" name="username" id="username" autocomplete="off"
+                  placeholder="Username" value="<%= typeof username != 'undefined' ? username : '' %>">
+          </div>
+          <div class="form-group">
+              <label for="password">Choose A Password</label>
+              <input type="password" class="form-control" name="password" id="password" autocomplete="off"
+                  placeholder="Password">
+          </div>
+          <div class="form-group">
+              <label for="confirmpassword">Confirm Your Password</label>
+              <input type="password" class="form-control" name="confirmpassword" id="confirmpassword"
+                  autocomplete="off" placeholder="Confirm Password">
+          </div>
+          <div class="form-group">
+              <input type="submit" class="btn btn-block btn-outline-primary" value="Register">
+          </div>
+          <p>Already Registered ? <a class="card-link" href="/login">LOGIN Here</a> </p>
+      </form>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+  crossorigin="anonymous"></script>
+
+
+ <br>
+ <br>
+
+
+
+    
+    </div> 
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
