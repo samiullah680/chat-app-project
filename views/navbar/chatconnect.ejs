@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title> Chat App  </title>
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="header">
+
+    <nav class=" navbar navbar-style navbar-expand-sm  " style=" box-shadow: 0 5px 10px #efefef;">
+        
+      <div class="container ">
+          
+          <div class="navbar-header">
+            <a href=""> <img class="logo" src="images/logo.jpg" style="height: 48px;
+                padding: 2px 2px ;"> Chat App</a>
+          </div>
+
+
+          <ul class=" nav navbar-nav navbar-right " >
+      
+            <li class="nav-item" >
+              <a class="nav-link" href="/home"> <i class="fa fa-home"></i> Home </a>
+                
+            </li>
+
+
+            <%  if(user) { %>
+              <li class="nav-item" >
+                <td style="text-align: center" >
+
+                  <a  class="nav-link" href="/logout"> <i class="fa fa-sign-in"></i>logout  </a>
+
+                </td>
+         
+                <%} else  { %>
+  
+                    <li class="nav-item" >
+                      <td style="text-align: center" >
+
+                        <a  class="nav-link" href="/logout"> <i class="fa fa-sign-in"></i>logout  </a>
+
+                      </td>
+                    </li>
+                      
+
+                  <% } %>
+
+
+           
+            <li class="nav-item" >
+              <a  class="nav-link" href="/chatconnect"> <i class="fa fa-comments-o" aria-hidden="true"></i> Chating</a>
+            </li>
+          
+
+          </ul>
+          
+        
+
+  </div>
+          
+ </nav>
+    
+<br>
+<br>
+
+
+
+
+<div class="row ">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12">    
+  
+        <div class="container">
+            <h2> if you want to chat any user : </h2>
+            <a href="#demo" class="btn btn-primary" data-toggle="collapse"> Please enter Email id</a>
+            <div id="demo" class="collapse">
+             
+             <form action="/chatconnect" method="POST" style="width:300px">  
+              
+                <div class="form-group">
+                  <label for="Title">Email </label>
+                  <input type="email" class="form-control" name="name" id="tite" placeholder=" Enter email for chat user">
+                  </div>
+          
+                 
+          
+              <div class="mt-3">
+                <button type="submit" class="btn btn-primary">Connect</button>
+              </div>
+          
+             </form>
+          
+             
+            </div>
+          </div>
+    </div>
+    <diV class="col-lg-6 col-md-6 col-sm-6 col-12"> 
+
+        <div class="container">
+            <h2> List of all Login user Email </h2>
+            <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th>Email </th>
+                  </tr>
+                </thead>
+         <% user.forEach(function(user) { %>
+ 
+                <tbody>
+                  <tr>
+                    <td>  <%= user.username %></td>
+                  </tr>   
+                </tbody>
+             <% }) %> 
+              </table>
+
+        </div>
+
+    </diV>
+
+
+  </div>
+
+<br>
+
+
+  
+
+
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
